@@ -1,1 +1,1 @@
-# GameofGrow
+# Grow
