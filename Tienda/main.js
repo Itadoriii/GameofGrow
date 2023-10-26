@@ -14,7 +14,7 @@ function displayProducts(productList) {
     productList.forEach(element => {
         productsHTML +=
         `<div class="product-container">
-            <img src="${element.imagen}" />
+            <img src=${element.imagen}/>
             <h3>${element.name}</h3>
 			<h2>Precio: <h1>
             <h1>$ ${element.precio}</h2>
