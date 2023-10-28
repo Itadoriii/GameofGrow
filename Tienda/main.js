@@ -9,25 +9,30 @@ function add(product, price) {
     
 }
 
-function displayProducts(productList) {
+function displayProducts(productList, html) {
     let productsHTML = '';
     productList.forEach(element => {
         productsHTML +=
-        `<div class="product-container">
-            <img src=${element.imagen}/>
-            <h3>${element.name}</h3>
-			<h2>Precio: <h1>
-            <h1>$ ${element.precio}</h2>
-            <button class="button-add" onclick="add(${element.id}, ${element.precio})">Agregar</button>
-        </div>`
+		`<div class="product-container">
+		<img src=${element.imagen}/>
+		<h3>${element.name}</h3>
+		<h2>Precio: <h1>
+		<h1>$ ${element.precio}</h2>
+		<button class="button-add" onclick="add('${element.name}', ${element.precio})">Agregar</button>
+		</div>`
     });
-    document.getElementById('page-content').innerHTML = productsHTML;
+    document.getElementById(html).innerHTML = productsHTML;
 }
-window.onload = async()=>{
-	const productos = await(await fetch("/api/productos")).json();
-	console.log(productos);
-	displayProducts(productos);
-} 	
+
+window.onload = async () => {
+    const semillas = await (await fetch("/api/semillas")).json();
+    const articulos = await (await fetch("/api/articulos")).json();
+    console.log(semillas);
+    console.log(articulos);
+    displayProducts(semillas, "semillas");
+    displayProducts(articulos, "articulos");
+}
+
 const btnDepartamentos = document.getElementById('btn-departamentos'),
 	  btnCerrarMenu = document.getElementById('btn-menu-cerrar'),
 	  grid = document.getElementById('grid'),

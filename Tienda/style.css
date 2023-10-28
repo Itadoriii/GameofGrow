@@ -558,12 +558,16 @@ button {
     color: white;
 }
 
-.page-content {
+.semillas{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-
+.articulos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 
 .product-container {
     margin: 15px;
